@@ -1,44 +1,38 @@
-# Analisis Kesesuaian antara Star Rating dan Sentimen Ulasan Pengguna menggunakan Metode Naive Bayes
+# Analisis Komparatif Algoritma Klasifikasi Sentimen untuk Mengukur Kesesuaian Star Rating dan Ulasan Pengguna
 
-Proyek ini bertujuan untuk menganalisis apakah rating bintang (star rating) yang diberikan oleh pengguna aplikasi di Google Play Store sesuai dengan sentimen yang tertuang dalam teks ulasan mereka. Analisis ini menggunakan algoritma **Multinomial Naive Bayes** dan teknik **TF-IDF Vectorization** untuk klasifikasi teks.
+Proyek ini bertujuan untuk menganalisis tingkat kesesuaian antara rating bintang (*star rating*) yang diberikan oleh pengguna aplikasi di Google Play Store dengan sentimen yang tertuang dalam teks ulasan mereka. Proyek ini melakukan **Studi Komparatif** antara tiga algoritma klasifikasi populer untuk menemukan model yang paling akurat dalam mendeteksi *mismatch*.
 
 ## Fitur Utama
-- **Automated Dataset Loading**: Mengunduh dataset terbaru dari Kaggle menggunakan `kagglehub`.
-- **Advanced Text Preprocessing**: Pembersihan teks tingkat lanjut mencakup lowercase, pembersihan karakter khusus, dan **Lemmatization** (NLTK WordNet).
-- **Handling Data Imbalance**: Menggunakan `RandomOverSampler` untuk menyeimbangkan kelas sentimen.
-- **Model Optimization**: Optimasi parameter `alpha` menggunakan **GridSearchCV**.
-- **Professional Visualization**: Word Clouds, Confusion Matrix Heatmap, dan grafik distribusi sentimen menggunakan `Seaborn`.
-- **Mismatch Analysis**: Fitur khusus untuk menganalisis ketidakkonsistenan antara rating bintang dan teks ulasan.
-- **Evaluation Metrics**: Menghitung akurasi, presisi, recall, balanced accuracy, dan F1-score.
+- **Comparative Study**: Membandingkan performa **Multinomial Naive Bayes**, **Linear SVM**, dan **Logistic Regression**.
+- **Large Scale Dataset**: Menggunakan 12.495 ulasan ulasan aplikasi asli dari Google Play Store.
+- **Advanced NLP Pipeline**: Mencakup *TF-IDF Vectorization* (Unigram & Bigram) dan **Lemmatization** (WordNet).
+- **Tableau Integration**: Ekspor hasil analisis ke format `.csv` yang dioptimasi untuk visualisasi analitik di Tableau.
+- **Handling Data Imbalance**: Implementasi **RandomOverSampler** (ROS) untuk menyeimbangkan kelas sentimen.
+- **Visualisasi Mendalam**: EDA (Exploratory Data Analysis), N-Gram Analysis, dan Confusion Matrix komparatif.
 
 ## Dataset
-Dataset yang digunakan berasal dari Kaggle: [Google Play App Reviews Dataset](https://www.kaggle.com/datasets/hassaanmustafavi/google-play-app-reviews-dataset).
-Dataset ini berisi ribuan ulasan aplikasi dengan kolom utama:
-- `review_description`: Teks ulasan asli.
-- `rating`: Rating bintang (1 hingga 5).
+Dataset yang digunakan berasal dari Kaggle: [Google Play Store Reviews](https://www.kaggle.com/datasets/prakharrathi25/google-play-store-reviews).
+- **Total Data**: 12.495 ulasan.
+- **Kolom Utama**: `content` (Teks ulasan) dan `score` (Rating 1-5).
 
 ## Persyaratan Sistem
 - Python 3.10+
-- Library: `pandas`, `numpy`, `scikit-learn`, `nltk`, `kagglehub`, `matplotlib`, `seaborn`, `wordcloud`, `imblearn`.
+- Library Utama: `pandas`, `scikit-learn`, `nltk`, `kagglehub`, `matplotlib`, `seaborn`, `imblearn`.
 
 ## Cara Menjalankan
-1. Pastikan Anda telah menginstal dependensi:
+1. Instal dependensi:
    ```bash
-   pip install pandas numpy scikit-learn nltk kagglehub
+   pip install pandas scikit-learn nltk kagglehub matplotlib seaborn imbalanced-learn
    ```
 2. Jalankan Jupyter Notebook:
    ```bash
-   jupyter notebook
+   jupyter notebook analisis_kesesuaian_rating_dan_sentimen_naive_bayes.ipynb
    ```
-3. Buka file `analisis_kesesuaian_rating_dan_sentimen_naive_bayes.ipynb` dan jalankan semua sel.
 
 ## Metodologi
-1. **Data Cleaning**: Menghapus baris dengan teks ulasan kosong.
-2. **Preprocessing**: Tokenisasi dan pembersihan teks untuk meningkatkan kualitas fitur.
-3. **Feature Engineering**: Menggunakan TF-IDF untuk merepresentasikan teks dalam bentuk numerik.
-4. **Classification**: Menggunakan Naive Bayes yang dikenal efektif untuk klasifikasi teks berskala besar.
-5. **Validation**: Membandingkan hasil prediksi model dengan label sentimen yang diturunkan dari rating bintang.
-
----
-**Kontributor:** [Nama Anda/Mikeudev]
-**Lisensi:** MIT
+1. **Data Preparation**: Labeling sentimen otomatis berdasarkan rating (1-2: Negatif, 3: Netral, 4-5: Positif).
+2. **Text Preprocessing**: Cleaning, Case Folding, Stopwords Removal, dan Lemmatization.
+3. **Feature Engineering**: Ekstraksi fitur menggunakan TF-IDF (1,2 n-grams).
+4. **Balancing**: Menyamakan jumlah sampel tiap kelas menggunakan ROS.
+5. **Model Training & Comparison**: Melatih tiga model dan membandingkan metrik akurasi serta F1-Score.
+6. **Mismatch Analysis**: Identifikasi ketidaksesuaian antara prediksi sentimen dan rating asli.
