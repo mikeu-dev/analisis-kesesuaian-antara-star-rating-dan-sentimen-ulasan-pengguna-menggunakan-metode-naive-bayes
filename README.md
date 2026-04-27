@@ -4,10 +4,12 @@ Proyek ini bertujuan untuk menganalisis apakah rating bintang (star rating) yang
 
 ## Fitur Utama
 - **Automated Dataset Loading**: Mengunduh dataset terbaru dari Kaggle menggunakan `kagglehub`.
-- **Text Preprocessing**: Membersihkan teks ulasan (lowercase, pembersihan karakter non-huruf, dan penghapusan stopwords).
-- **Sentiment Mapping**: Mengonversi star rating (1-5) menjadi kategori sentimen (Positive, Neutral, Negative).
-- **Machine Learning Pipeline**: Implementasi end-to-end dari ekstraksi fitur hingga evaluasi model.
-- **Evaluation Metrics**: Menghitung akurasi, presisi, recall, dan F1-score.
+- **Advanced Text Preprocessing**: Pembersihan teks tingkat lanjut mencakup lowercase, pembersihan karakter khusus, dan **Lemmatization** (NLTK WordNet).
+- **Handling Data Imbalance**: Menggunakan `RandomOverSampler` untuk menyeimbangkan kelas sentimen.
+- **Model Optimization**: Optimasi parameter `alpha` menggunakan **GridSearchCV**.
+- **Professional Visualization**: Word Clouds, Confusion Matrix Heatmap, dan grafik distribusi sentimen menggunakan `Seaborn`.
+- **Mismatch Analysis**: Fitur khusus untuk menganalisis ketidakkonsistenan antara rating bintang dan teks ulasan.
+- **Evaluation Metrics**: Menghitung akurasi, presisi, recall, balanced accuracy, dan F1-score.
 
 ## Dataset
 Dataset yang digunakan berasal dari Kaggle: [Google Play App Reviews Dataset](https://www.kaggle.com/datasets/hassaanmustafavi/google-play-app-reviews-dataset).
@@ -17,7 +19,7 @@ Dataset ini berisi ribuan ulasan aplikasi dengan kolom utama:
 
 ## Persyaratan Sistem
 - Python 3.10+
-- Library: `pandas`, `numpy`, `scikit-learn`, `nltk`, `kagglehub`.
+- Library: `pandas`, `numpy`, `scikit-learn`, `nltk`, `kagglehub`, `matplotlib`, `seaborn`, `wordcloud`, `imblearn`.
 
 ## Cara Menjalankan
 1. Pastikan Anda telah menginstal dependensi:
