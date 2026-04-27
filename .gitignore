@@ -50,3 +50,4 @@ Thumbs.db
 # Cache
 .cache/
 .kaggle/
+*.code-workspace
