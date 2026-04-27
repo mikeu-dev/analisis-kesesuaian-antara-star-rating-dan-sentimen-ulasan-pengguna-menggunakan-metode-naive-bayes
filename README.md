@@ -26,7 +26,7 @@ Dataset yang digunakan berasal dari Kaggle: [Google Play Store Reviews](https://
    ```
 2. Jalankan Jupyter Notebook:
    ```bash
-   jupyter notebook analisis_kesesuaian_rating_dan_sentimen_naive_bayes.ipynb
+   jupyter notebook analisis_komparatif_sentimen_dan_mismatch_rating.ipynb
    ```
 
 ## Metodologi
